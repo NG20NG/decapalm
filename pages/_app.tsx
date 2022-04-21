@@ -16,6 +16,7 @@ import {
   AccueilDescription,
   ActiviteDescription,
   AproposDescription,
+  ContactDescription,
 } from "../components/headerDescriptions/headerDescriptions";
 //
 function MyApp({ Component, pageProps }: AppProps) {
@@ -38,54 +39,25 @@ function MyApp({ Component, pageProps }: AppProps) {
       if (width <= 600) {
         console.log("you using a phone");
       } else {
-        if (router.pathname === "/") {
-          gsap.to("." + header.headerDescription, {
-            position: "absolute",
-            left: 0,
-          });
-          gsap.to("." + header.headerDescription, { display: "flex" });
-          console.log("if '/'");
-          gsap.to("." + header.headerDescriptionContact, {
-            display: "none",
-          });
-          gsap.to("." + header.headerDescriptionContact, {
-            position: "absolute",
-            left: -1300,
-          });
-          gsap
-            .to("." + header.headerDescriptionContact, {
-              display: "none",
-            })
-            .delay(0.5);
-        } else {
-          // ================ not '/'
-          gsap.to("." + header.headerDescription, {
-            position: "absolute",
-            left: 1300,
-          });
-          gsap
-            .to("." + header.headerDescription, {
-              display: "none",
-            })
-            .delay(0.5);
-          // ================ if '/contact'
-          if (router.pathname === "/contact") {
-            console.log(router.pathname);
-            gsap.to("." + header.headerDescriptionContact, { display: "flex" });
-            gsap
-              .to("." + header.headerDescriptionContact, {
-                left: 0,
-              })
-              .delay(0.1);
-          }
-        }
+        gsap.to(`.${header.headerDescription}`, {
+          position: "relative",
+          left: "1300px",
+        });
+        gsap
+          .to(`.${header.headerDescription} > p`, { display: "none" })
+          .delay(0.2);
+        gsap.to(`.${header.headerDescription}`, { left: "-600px" }).delay(0.7);
+        gsap
+          .to(`.${header.headerDescription} > p`, { display: "flex" })
+          .delay(1.1);
+        gsap.to(`.${header.headerDescription}`, { left: "0px" }).delay(1.1);
       }
     }
   };
   //===============================================================
   useEffect(() => {
     pathName();
-  }, [router?.pathname]);
+  }, [router]);
   //===============================================================
   const menuListArray = [
     ["/", "Accueil", header.accueilBTN],
@@ -112,15 +84,21 @@ function MyApp({ Component, pageProps }: AppProps) {
     setMenuOnClick(!menuOnClick);
   };
   //===============================================================
-  if (router.pathname === "/") {
-    console.log(router.pathname);
-  } else if (router.pathname === "/contact") {
-    console.log(router.pathname);
-  } else if (router.pathname === "/activite") {
-    console.log(router.pathname);
-  } else if (router.pathname === "/apropos") {
-    console.log(router.pathname);
-  }
+  const [descriptionElem, setDescriptionElem] = useState<any>();
+  const headerDescriptionFunction = () => {
+    if (router.pathname === "/") {
+      setDescriptionElem(<AccueilDescription />);
+    } else if (router.pathname === "/contact") {
+      setDescriptionElem(<ContactDescription />);
+    } else if (router.pathname === "/activite") {
+      setDescriptionElem(<ActiviteDescription />);
+    } else if (router.pathname === "/apropos") {
+      setDescriptionElem(<AproposDescription />);
+    }
+  };
+  useEffect(() => {
+    headerDescriptionFunction();
+  }, [router.pathname]);
   //===============================================================
   return (
     <div className={header.appStaticPageContainer}>
@@ -156,7 +134,11 @@ function MyApp({ Component, pageProps }: AppProps) {
                 ))}
               </ul>
             </nav>
-            <div></div>
+            <div>
+              <div className={header.headerDescription}>
+                <p>{descriptionElem}</p>
+              </div>
+            </div>
           </header>
           <Component {...pageProps} />
           <footer className={footer.footer}>

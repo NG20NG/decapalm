@@ -27,7 +27,7 @@ const Carousel = () => {
       <Slider {...settings}>
         {["1.jpg", "2.jpg", "3.jpg", "4.jpg"].map((e, i) => {
           return (
-            <div key={i}>
+            <div key={i} className={c.divInsideCarousel}>
               <Image
                 src={"/carousel/" + e}
                 alt="test"

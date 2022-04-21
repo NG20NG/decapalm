@@ -13,12 +13,39 @@
   .mainCarouselStaticContainer {
     border-radius: 5px;
     width: 80vw;
-    height: auto;
+    height: 40%;
     margin-left: 0;
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.508);
   }
   .mainCarouselStaticContainer {
-    width: 79%;
-    height: 178px;
+    width: 78%;
+  }
+}
+@media only screen and (max-width: 455px) {
+  .mainCarouselStaticContainer {
+    height: 38%;
+  }
+}
+@media only screen and (max-width: 445px) {
+  .mainCarouselStaticContainer {
+    height: 35%;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .mainCarouselStaticContainer {
+    width: 78%;
+    height: 24%;
+  }
+}
+@media only screen and (max-width: 385px) {
+  .mainCarouselStaticContainer {
+    width: 78%;
+    height: 30%;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .mainCarouselStaticContainer {
+    width: 78%;
+    height: 25%;
   }
 }

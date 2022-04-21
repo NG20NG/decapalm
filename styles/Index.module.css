@@ -48,7 +48,7 @@
   .carouselContainer {
     flex-direction: column;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 25%;
     width: 100vw;
     height: 550px;
     background-image: linear-gradient(
@@ -67,5 +67,19 @@
   .carouselDescription > p {
     width: 100%;
     padding: 15px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .carouselContainer {
+    margin-top: 65%;
+  }
+  .carouselContainer {
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 530px;
+  }
+  .carouselDescription > p {
+    font-size: 18px;
   }
 }

@@ -6,7 +6,6 @@ import index from "../styles/Index.module.css";
 import f from "../components/footer/footer";
 //
 import Carousel from "../components/carousel/carousel";
-import Footer from "../components/footer/footer";
 //
 //
 //
@@ -39,32 +38,6 @@ const Home: NextPage = () => {
             </p>
           </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <br />
         <br />
         <br />
