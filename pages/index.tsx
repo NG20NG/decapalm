@@ -1,6 +1,11 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import index from "../styles/Index.module.css";
+//
+import Image from "next/image";
+//
+import image1 from "../images/carousel/1.jpg";
+//
 
 const Home: NextPage = () => {
   return (

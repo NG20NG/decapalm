@@ -2,24 +2,43 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Link from "next/link";
 //
+import gsap from "gsap";
 import header from "../styles/Header.module.css";
+import Image from "next/image";
 //
+import mobileMenuBTN from "../images/svg/mobileMenuBTN.svg";
+import { useState } from "react";
 //
 
 //
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // const linksData: string[][] = [
-  //   ["/", "home", home.linkMenuBTN, home.animYHome],
-  //   ["/contact", "contact", home.linkMenuBTN, home.animYContact],
-  //   ["/about", "about", home.linkMenuBTN, home.animYAbout],
-  // ];
+  //==========================================================
   const menuListArray = [
     ["/", "Accueil", header.accueilBTN],
     ["/activité", "Activité", header.activiteBTN],
     ["/contact", "Contact", header.contactBTN],
     ["/apropos", "À-propos", header.aproposBTN],
   ];
+  const MobileListArray = [
+    ["/", "Accueil"],
+    ["/activité", "Activité"],
+    ["/contact", "Contact"],
+    ["/apropos", "À-propos"],
+  ];
+  //==========================================================
+  const [menuOnClick, setMenuOnClick] = useState<Boolean>(false);
+  const mobileMenuAnimation = () => {
+    menuOnClick === false
+      ? gsap.to(`.${header.mobileMenuListContainer}`, {
+          right: "-100px",
+        })
+      : gsap.to(`.${header.mobileMenuListContainer}`, {
+          right: "-320px",
+        });
+    setMenuOnClick(!menuOnClick);
+  };
+  //==========================================================
   return (
     <div className={header.appStaticPageContainer}>
       <div className={header.appStaticPage}>
@@ -27,6 +46,23 @@ function MyApp({ Component, pageProps }: AppProps) {
           <header className={header.header}>
             <nav className={header.nav}>
               <h1 className={header.h1}>Decapalm</h1>
+              <button
+                className={header.mobileMenuBTN}
+                onClick={() => mobileMenuAnimation()}
+              >
+                <Image src={mobileMenuBTN} />
+              </button>
+              <div className={header.mobileMenuListContainer}>
+                <ul className={header.mobileUnorderedListMenuContainer}>
+                  {MobileListArray?.map((e: any, i: any) => (
+                    <Link key={i} href={e[0]}>
+                      <a>
+                        <li className={`${header.mobileMenuList}`}>{e[1]}</li>
+                      </a>
+                    </Link>
+                  ))}
+                </ul>
+              </div>
               <ul className={header.unorderedListMenuContainer}>
                 {menuListArray?.map((e: any, i: any) => (
                   <Link key={i} href={e[0]}>
