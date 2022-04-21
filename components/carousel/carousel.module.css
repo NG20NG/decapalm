@@ -1,9 +1,13 @@
 .mainCarouselStaticContainer {
-  border-radius: 5px;
-  width: 50%;
-  height: auto;
-  margin-left: 140px;
-  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.508);
+  border-radius: 10px;
+  width: 54%;
+  height: 399px;
+  box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.746);
+  overflow: hidden;
+  margin-left: 60px;
+}
+.sliderDivContainer {
+  margin: 0px 20px;
 }
 @media only screen and (max-width: 600px) {
   .mainCarouselStaticContainer {
@@ -12,6 +16,9 @@
     height: auto;
     margin-left: 0;
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.508);
-    border: 10px solid black;
+  }
+  .mainCarouselStaticContainer {
+    width: 79%;
+    height: 178px;
   }
 }

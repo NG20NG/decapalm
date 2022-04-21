@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 //
+import Image from "next/image";
 import index from "../styles/Index.module.css";
 //
 import Carousel from "../components/carousel/carousel";
@@ -17,7 +18,24 @@ const Home: NextPage = () => {
       </Head>
       <main className={index.main}>
         <div className={index.carouselContainer}>
+          <div className={index.illustrationDolphinDeco}>
+            <Image
+              src="/illustrationDolphin/dolphin.png"
+              height={200}
+              width={200}
+              alt="illustration dolphin"
+            />
+          </div>
           <Carousel />
+          <div className={index.carouselDescription}>
+            <p>
+              La plongée sous-marine est notre passion depuis déjà plusieurs
+              années. Passion de plongeur tout d’abord, puis passion à
+              l’enseigner. Notre plus grande satisfaction est de partager cette
+              dernière avec vous en vous offrant les meilleures prestations
+              possibles
+            </p>
+          </div>
         </div>
         <br />
         <br />

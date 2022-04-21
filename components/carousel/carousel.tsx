@@ -2,32 +2,38 @@
 import c from "./carousel.module.css";
 //
 import Image from "next/image";
-import Slider from "react-slick";
 //
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 //
 //
 //
 const Carousel = () => {
   const settings = {
-    dots: true,
-    fade: true,
     infinite: true,
-    speed: 500,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
+    arrows: false,
+    pauseOnFocus: true,
+    autoplaySpeed: 4000,
   };
   const width = "750px";
   const height = "450px";
   return (
     <div className={c.mainCarouselStaticContainer}>
       <Slider {...settings}>
-        {["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg"].map((e) => {
+        {["1.jpg", "2.jpg", "3.jpg", "4.jpg"].map((e) => {
           return (
             <div>
-              <Image src={e} alt="test" width={width} height={height} />
+              <Image
+                src={"/carousel/" + e}
+                alt="test"
+                width={width}
+                height={height}
+              />
             </div>
           );
         })}
