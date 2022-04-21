@@ -12,28 +12,27 @@ import Image from "next/image";
 import mobileMenuBTN from "../public/svg/mobileMenuBTN.svg";
 //
 import Footer from "../components/footer/footer";
+import {
+  AccueilDescription,
+  ActiviteDescription,
+  AproposDescription,
+} from "../components/headerDescriptions/headerDescriptions";
 //
-
 function MyApp({ Component, pageProps }: AppProps) {
+  //===============================================================
+  gsap.config({
+    autoSleep: 60,
+    force3D: false,
+    nullTargetWarn: false,
+    units: { left: "%", top: "%", rotation: "rad" },
+  });
+  //===============================================================
   const router = useRouter();
-  const descriptionArray = [
-    [
-      header.headerDescription,
-      <p>
-        Amoureux de la mer
-        <br />
-        ou juste envie de changer de cadre ?<br />
-        venez à DECAPALM découvrir
-        <br />
-        les merveilles du monde sous-marin
-      </p>,
-    ],
-    [header.headerDescriptionContact, <p>Contact</p>],
-  ];
   let width: any;
   if (typeof window === "object" ? window.innerWidth : undefined) {
     width = typeof window === "object" ? window.innerWidth : undefined;
   }
+  //===============================================================
   const pathName = () => {
     if (width) {
       if (width <= 600) {
@@ -83,23 +82,24 @@ function MyApp({ Component, pageProps }: AppProps) {
       }
     }
   };
+  //===============================================================
   useEffect(() => {
     pathName();
-  }, [router]);
-  //==========================================================
+  }, [router?.pathname]);
+  //===============================================================
   const menuListArray = [
     ["/", "Accueil", header.accueilBTN],
-    ["/activité", "Activité", header.activiteBTN],
+    ["/activite", "Activité", header.activiteBTN],
     ["/contact", "Contact", header.contactBTN],
     ["/apropos", "À-propos", header.aproposBTN],
   ];
   const MobileListArray = [
     ["/", "Accueil"],
-    ["/activité", "Activité"],
+    ["/activite", "Activité"],
     ["/contact", "Contact"],
     ["/apropos", "À-propos"],
   ];
-  //==========================================================
+  //===============================================================
   const [menuOnClick, setMenuOnClick] = useState<Boolean>(false);
   const mobileMenuAnimation = () => {
     menuOnClick === false
@@ -111,7 +111,17 @@ function MyApp({ Component, pageProps }: AppProps) {
         });
     setMenuOnClick(!menuOnClick);
   };
-  //==========================================================
+  //===============================================================
+  if (router.pathname === "/") {
+    console.log(router.pathname);
+  } else if (router.pathname === "/contact") {
+    console.log(router.pathname);
+  } else if (router.pathname === "/activite") {
+    console.log(router.pathname);
+  } else if (router.pathname === "/apropos") {
+    console.log(router.pathname);
+  }
+  //===============================================================
   return (
     <div className={header.appStaticPageContainer}>
       <div className={header.appStaticPage}>
@@ -146,15 +156,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 ))}
               </ul>
             </nav>
-            <div>
-              {descriptionArray.map((e, i) => {
-                return (
-                  <div key={i} className={`${e[0]}`}>
-                    {e[1]}
-                  </div>
-                );
-              })}
-            </div>
+            <div></div>
           </header>
           <Component {...pageProps} />
           <footer className={footer.footer}>

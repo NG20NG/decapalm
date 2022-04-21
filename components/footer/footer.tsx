@@ -19,10 +19,15 @@ const Footer = () => {
           </p>
           <div id={footer.reseau}>
             <div className={footer.reseauSVG}>
-              <Image src={fbSvg} width={40} height={40} />
+              <Image src={fbSvg} width={40} height={40} alt="facebook svg" />
             </div>
             <div className={footer.reseauSVG}>
-              <Image src={instaSvg} width={40} height={40} />
+              <Image
+                src={instaSvg}
+                width={40}
+                height={40}
+                alt="instagram svg"
+              />
             </div>
           </div>
         </div>
