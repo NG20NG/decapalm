@@ -1,18 +1,91 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 //
 import gsap from "gsap";
 import header from "../styles/Header.module.css";
+import footer from "../components/footer/footer.module.css";
 import Image from "next/image";
 //
-import mobileMenuBTN from "../images/svg/mobileMenuBTN.svg";
-import { useState } from "react";
+import mobileMenuBTN from "../public/svg/mobileMenuBTN.svg";
 //
-
+import Footer from "../components/footer/footer";
 //
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  const descriptionArray = [
+    [
+      header.headerDescription,
+      <p>
+        Amoureux de la mer
+        <br />
+        ou juste envie de changer de cadre ?<br />
+        venez à DECAPALM découvrir
+        <br />
+        les merveilles du monde sous-marin
+      </p>,
+    ],
+    [header.headerDescriptionContact, <p>Contact</p>],
+  ];
+  let width: any;
+  if (typeof window === "object" ? window.innerWidth : undefined) {
+    width = typeof window === "object" ? window.innerWidth : undefined;
+  }
+  const pathName = () => {
+    if (width) {
+      if (width <= 600) {
+        console.log("you using a phone");
+      } else {
+        if (router.pathname === "/") {
+          gsap.to("." + header.headerDescription, {
+            position: "absolute",
+            left: 0,
+          });
+          gsap.to("." + header.headerDescription, { display: "flex" });
+          console.log("if '/'");
+          gsap.to("." + header.headerDescriptionContact, {
+            display: "none",
+          });
+          gsap.to("." + header.headerDescriptionContact, {
+            position: "absolute",
+            left: -1300,
+          });
+          gsap
+            .to("." + header.headerDescriptionContact, {
+              display: "none",
+            })
+            .delay(0.5);
+        } else {
+          // ================ not '/'
+          gsap.to("." + header.headerDescription, {
+            position: "absolute",
+            left: 1300,
+          });
+          gsap
+            .to("." + header.headerDescription, {
+              display: "none",
+            })
+            .delay(0.5);
+          // ================ if '/contact'
+          if (router.pathname === "/contact") {
+            console.log(router.pathname);
+            gsap.to("." + header.headerDescriptionContact, { display: "flex" });
+            gsap
+              .to("." + header.headerDescriptionContact, {
+                left: 0,
+              })
+              .delay(0.1);
+          }
+        }
+      }
+    }
+  };
+  useEffect(() => {
+    pathName();
+  }, [router]);
   //==========================================================
   const menuListArray = [
     ["/", "Accueil", header.accueilBTN],
@@ -73,18 +146,20 @@ function MyApp({ Component, pageProps }: AppProps) {
                 ))}
               </ul>
             </nav>
-            <div className={header.headerDescription}>
-              <p>
-                Amoureux de la mer
-                <br />
-                ou juste envie de changer de cadre ?<br />
-                venez à DECAPALM découvrir
-                <br />
-                les merveilles du monde sous-marin
-              </p>
+            <div>
+              {descriptionArray.map((e, i) => {
+                return (
+                  <div key={i} className={`${e[0]}`}>
+                    {e[1]}
+                  </div>
+                );
+              })}
             </div>
           </header>
           <Component {...pageProps} />
+          <footer className={footer.footer}>
+            <Footer />
+          </footer>
         </div>
       </div>
     </div>

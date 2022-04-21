@@ -25,9 +25,9 @@ const Carousel = () => {
   return (
     <div className={c.mainCarouselStaticContainer}>
       <Slider {...settings}>
-        {["1.jpg", "2.jpg", "3.jpg", "4.jpg"].map((e) => {
+        {["1.jpg", "2.jpg", "3.jpg", "4.jpg"].map((e, i) => {
           return (
-            <div>
+            <div key={i}>
               <Image
                 src={"/carousel/" + e}
                 alt="test"

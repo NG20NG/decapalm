@@ -3,8 +3,10 @@ import Head from "next/head";
 //
 import Image from "next/image";
 import index from "../styles/Index.module.css";
+import f from "../components/footer/footer";
 //
 import Carousel from "../components/carousel/carousel";
+import Footer from "../components/footer/footer";
 //
 //
 //
@@ -21,8 +23,8 @@ const Home: NextPage = () => {
           <div className={index.illustrationDolphinDeco}>
             <Image
               src="/illustrationDolphin/dolphin.png"
-              height={200}
-              width={200}
+              height={150}
+              width={150}
               alt="illustration dolphin"
             />
           </div>
@@ -77,7 +79,6 @@ const Home: NextPage = () => {
         <br />
         <br />
       </main>
-      <footer className={index.footer}></footer>
     </div>
   );
 };
