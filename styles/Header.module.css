@@ -131,17 +131,17 @@
   .mobileMenuListContainer {
     position: fixed;
     top: 0;
-    right: -600px;
-    width: 80vw;
+    right: -500px;
     background-color: rgba(2, 7, 23, 0.919);
+    width: 80vw;
     height: 100vh;
     z-index: 100;
     display: flex;
     justify-content: flex-start;
   }
   .mobileUnorderedListMenuContainer {
-    width: 215px;
-    height: auto;
+    width: 90%;
+    height: 100vh;
     margin-top: 80px;
     flex-direction: column;
     display: flex;
@@ -152,12 +152,12 @@
   }
   .mobileMenuList {
     background-color: rgba(58, 58, 58, 0.307);
-    margin: 5px 0px;
+    margin: 8px 0px;
     border-radius: 3px;
     color: white;
     list-style: none;
-    width: 150px;
-    height: 50px;
+    width: 220px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -181,11 +181,11 @@
     color: white;
     text-shadow: 1px 1px black;
     margin-left: 0;
-    font-size: 60px;
+    font-size: 50px;
   }
   .headerDescription {
     position: absolute;
-    height: 120px;
+    height: 12%;
     top: 100px;
     display: flex;
     justify-content: center;
@@ -195,9 +195,19 @@
     background-color: rgb(235, 243, 240);
     color: black;
     font-size: 18px;
-    width: 350px;
+    width: 89vw;
     margin-left: 0;
     background-image: none;
     text-shadow: none;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .headerDescription {
+    position: absolute;
+    height: 25%;
+    top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

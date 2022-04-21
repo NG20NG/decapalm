@@ -31,10 +31,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   const mobileMenuAnimation = () => {
     menuOnClick === false
       ? gsap.to(`.${header.mobileMenuListContainer}`, {
-          right: "-100px",
+          right: "-10vw",
         })
       : gsap.to(`.${header.mobileMenuListContainer}`, {
-          right: "-320px",
+          right: "-500px",
         });
     setMenuOnClick(!menuOnClick);
   };
@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 className={header.mobileMenuBTN}
                 onClick={() => mobileMenuAnimation()}
               >
-                <Image src={mobileMenuBTN} />
+                <Image src={mobileMenuBTN} alt="mobile menu button svg" />
               </button>
               <div className={header.mobileMenuListContainer}>
                 <ul className={header.mobileUnorderedListMenuContainer}>
