@@ -1,0 +1,103 @@
+.contactStaticContainer {
+  width: 100%;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contactStatic {
+  width: 95%;
+  height: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#googleMapContainer {
+  width: 55%;
+  height: 100%;
+}
+#googleMap {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.49);
+}
+.contactDescriptionContainer {
+  width: 39%;
+  height: 100%;
+  margin-right: 30px;
+}
+.contactPhotoDescription {
+  height: 200px;
+}
+.contactDecapalmInfoContainer {
+  height: 195px;
+  position: relative;
+}
+.contactDecapalmInfoContainer > div {
+  border-radius: 6px;
+  position: absolute;
+  top: 30px;
+  height: 270px;
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.49);
+  border-top: 4px solid rgb(255, 191, 0);
+}
+.contactLeftBarUnderGoogleMap {
+  position: absolute;
+  left: 150px;
+  height: 100%;
+  width: 200px;
+  z-index: -1;
+  background-image: linear-gradient(to bottom, rgb(5, 18, 44), rgb(3, 5, 36));
+  border-left: 2px solid white;
+}
+@media only screen and (max-width: 600px) {
+  .contactLeftBarUnderGoogleMap {
+    display: flex;
+    left: 0px;
+    box-shadow: inset 0px 0px 100px 0px rgba(0, 0, 0, 0.178);
+  }
+  .contactStaticContainer {
+    align-items: flex-start;
+    margin-top: 120px;
+    height: 600px;
+  }
+  .contactStatic {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 380px;
+  }
+  #googleMapContainer {
+    height: 55%;
+    width: 70%;
+  }
+  .contactDescriptionContainer {
+    height: 120px;
+    width: 90%;
+    margin-right: 0;
+  }
+  .contactPhotoDescription {
+    height: 140px;
+    width: 65%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../public/header/backgroundPlongeur.jpg");
+  }
+  .contactDecapalmInfoContainer {
+    top: 0;
+    height: 100px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .contactDecapalmInfoContainer > div {
+    width: 70%;
+    height: 180px;
+    top: -40px;
+    margin: 0;
+  }
+}
