@@ -12,19 +12,19 @@ import Slider from "react-slick";
 const Carousel = () => {
   const settings = {
     infinite: true,
-    speed: 2000,
+    speed: 800,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    arrows: false,
+    arrows: true,
     pauseOnFocus: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
   };
-  const width = "750px";
-  const height = "450px";
+  const width = "700px";
+  const height = "400px";
   return (
     <div className={c.mainCarouselStaticContainer}>
-      <Slider {...settings}>
+      <Slider {...settings} className={c.sliderElement}>
         {["1.jpg", "2.jpg", "3.jpg", "4.jpg"].map((e, i) => {
           return (
             <div key={i} className={c.divInsideCarousel}>

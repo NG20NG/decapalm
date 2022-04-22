@@ -2,6 +2,14 @@
   font-family: "karla";
   src: url("../fonts/Karla-VariableFont_wght.ttf");
 }
+.main {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.secondMain {
+  width: 1366px;
+}
 /*========================== responsive Carousel*/
 .carouselContainer {
   width: 100%;
@@ -19,7 +27,7 @@
   font-weight: 500;
   margin-right: 50px;
   box-shadow: 15px 15px 15px -5px rgba(0, 0, 0, 0.524);
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
 }
 .carouselDescription > p {
@@ -29,10 +37,10 @@
   padding: 20px;
   background-image: linear-gradient(
     to bottom right,
-    rgb(0, 187, 255),
-    rgb(89, 0, 255)
+    rgb(231, 231, 231),
+    rgb(239, 239, 239)
   );
-  color: white;
+  color: rgb(0, 0, 0);
   text-shadow: 1px 1px black;
   box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.23);
 }
@@ -42,31 +50,27 @@
   right: 70px;
 }
 @media only screen and (max-width: 600px) {
+  .main {
+    margin-top: 160px;
+  }
   .illustrationDolphinDeco {
     display: none;
   }
   .carouselContainer {
     flex-direction: column;
     justify-content: center;
-    margin-top: 25%;
     width: 100vw;
     height: 550px;
-    background-image: linear-gradient(
-      to bottom right,
-      rgb(0, 221, 177),
-      rgb(0, 255, 204)
-    );
   }
   .carouselDescription {
     width: 80vw;
     font-size: 20px;
-    margin-top: 40px;
+    font-weight: 500;
     margin-right: 0;
     height: auto;
   }
   .carouselDescription > p {
     width: 100%;
-    padding: 15px;
   }
 }
 @media only screen and (max-width: 300px) {

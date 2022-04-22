@@ -6,14 +6,10 @@ import d from "./headerDescriptions.module.css";
 export const AccueilDescription = () => {
   return (
     <div>
-      <p>
-        Amoureux de la mer
-        <br />
-        ou juste envie de changer de cadre ?<br />
-        venez à DECAPALM découvrir
-        <br />
-        les merveilles du monde sous-marin
-      </p>
+      Amoureux de la mer
+      <br />
+      ou juste envie de changer de cadre ? venez à DECAPALM découvrir les
+      merveilles du monde sous-marin
     </div>
   );
 };
@@ -25,10 +21,23 @@ export const ActiviteDescription = () => {
 //
 //
 export const AproposDescription = () => {
-  return <div>AproposDescription</div>;
+  return (
+    <div>
+      La plongée sous-marine est notre passion
+      <br />
+      depuis déjà plusieurs années. Passion de plongeur tout d’abord, puis
+      passion à l’enseigner
+    </div>
+  );
 };
 //
 //
 export const ContactDescription = () => {
-  return <div>ContactDescription</div>;
+  return (
+    <div className={d.policeSizeContact}>
+      Contactez-nous
+      <br />
+      et participer à une expérience inoubliable
+    </div>
+  );
 };

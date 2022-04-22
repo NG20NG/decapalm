@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       } else {
         gsap.to(`.${header.headerDescription}`, {
           position: "relative",
-          left: "1300px",
+          left: "2000px",
         });
         gsap
           .to(`.${header.headerDescription} > p`, { display: "none" })
