@@ -39,9 +39,12 @@ const Contact = () => {
                   <p>Instagram : @Decapalm</p>
                 </div>
               </div>
-              <div className={contact.contactUnderInfo}>
-                <div>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              <div className={contact.contactUnderInfoDescriptionContainer}>
+                <div className={contact.contactUnderInfo}>
+                  Le baptême de plongée sous-marine est une simple{" "}
+                  <button className={contact.contactUnderInfoBTN}>
+                    découverte
+                  </button>
                 </div>
               </div>
             </div>
