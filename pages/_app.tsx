@@ -44,11 +44,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           left: "2000px",
         });
         gsap
-          .to(`.${header.headerDescription} > p`, { display: "none" })
+          .to(`.${header.headerDescription} > div`, { display: "none" })
           .delay(0.2);
         gsap.to(`.${header.headerDescription}`, { left: "-600px" }).delay(0.7);
         gsap
-          .to(`.${header.headerDescription} > p`, { display: "flex" })
+          .to(`.${header.headerDescription} > div`, { display: "flex" })
           .delay(1.1);
         gsap.to(`.${header.headerDescription}`, { left: "0px" }).delay(1.1);
       }

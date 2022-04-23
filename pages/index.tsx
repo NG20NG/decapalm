@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-//"design contact page all 80% fixing s layout --version 1.6.4 alpha"
+//"design apropos page 70% plus mobileV / fixing header from P to div bug --version 1.7.5 alpha" next bug header animation
 import Image from "next/image";
 import index from "../styles/Index.module.css";
 //

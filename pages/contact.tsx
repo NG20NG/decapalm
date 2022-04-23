@@ -1,5 +1,6 @@
 //
 //
+import Link from "next/link";
 import contact from "../styles/contact.module.css";
 //
 //
@@ -43,7 +44,9 @@ const Contact = () => {
                 <div className={contact.contactUnderInfo}>
                   Le baptême de plongée sous-marine est une simple{" "}
                   <button className={contact.contactUnderInfoBTN}>
-                    découverte
+                    <Link href="/activite">
+                      <a>découverte</a>
+                    </Link>
                   </button>
                 </div>
               </div>
