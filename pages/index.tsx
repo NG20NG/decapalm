@@ -3,10 +3,8 @@ import Head from "next/head";
 //"design contact page all 80% fixing s layout --version 1.6.4 alpha"
 import Image from "next/image";
 import index from "../styles/Index.module.css";
-import f from "../components/footer/footer";
 //
 import Carousel from "../components/carousel/carousel";
-//
 //
 //
 const Home: NextPage = () => {
@@ -25,10 +23,10 @@ const Home: NextPage = () => {
                 src="/illustrationDolphin/dolphin.png"
                 height={150}
                 width={150}
-                alt="illustration dolphin"
+                alt="illustration dolphin svg"
               />
             </div>
-            <Carousel />
+            <Carousel /> {/*main carousel*/}
             <div className={index.carouselDescription}>
               <p>
                 La plongée sous-marine est notre passion depuis déjà plusieurs

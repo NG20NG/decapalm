@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     width = typeof window === "object" ? window.innerWidth : undefined;
   }
   //===============================================================
-  const pathName = () => {
+  const pathNameAnimation = () => {
     if (width) {
       if (width <= 600) {
         console.log("you using a phone");
@@ -54,10 +54,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       }
     }
   };
-  //===============================================================
-  useEffect(() => {
-    pathName();
-  }, [router]);
   //===============================================================
   const menuListArray = [
     ["/", "Accueil", header.accueilBTN],
@@ -97,8 +93,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   };
   useEffect(() => {
-    headerDescriptionFunction();
-  }, [router.pathname]);
+    pathNameAnimation(); // header description animation from left t right
+    headerDescriptionFunction(); // header description adding the elem before animation
+  }, [router]); // activate the functions every time the router change
   //===============================================================
   return (
     <div className={header.appStaticPageContainer}>
@@ -136,7 +133,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </nav>
             <div>
               <div className={header.headerDescription}>
-                <p>{descriptionElem}</p>
+                <div>{descriptionElem}</div>
               </div>
             </div>
           </header>

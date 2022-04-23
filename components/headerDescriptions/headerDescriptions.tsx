@@ -22,11 +22,9 @@ export const ActiviteDescription = () => {
 //
 export const AproposDescription = () => {
   return (
-    <div>
-      La plongée sous-marine est notre passion
-      <br />
-      depuis déjà plusieurs années. Passion de plongeur tout d’abord, puis
-      passion à l’enseigner
+    <div className={d.policeSizeApropos}>
+      La plongée sous-marine est notre passion depuis déjà plusieurs années.
+      Passion de plongeur tout d’abord, puis passion à l’enseigner
     </div>
   );
 };
