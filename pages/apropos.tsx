@@ -93,8 +93,8 @@ const Apropos = () => {
                 dépends de la météo toujours avec ça vous avez un choix de site
                 à explorer :
                 <div className={apropos.textDescriptionOptions}>
-                  <div>l'ilot de Sandja</div>
-                  <div>l'ilot de bounettah</div>
+                  <div>{`l'ilot de Sandja`}</div>
+                  <div>{`l'ilot de bounettah`}</div>
                   <div>la Bordelaise</div>
                   <div>Aguelli</div>
                   <div>Epaves</div>
@@ -120,6 +120,7 @@ const Apropos = () => {
                 src={"/apropos/aproposRightImage.jpg"}
                 height={505}
                 width={600}
+                alt="right bar image"
               />
             </div>
           </div>
@@ -130,7 +131,12 @@ const Apropos = () => {
               <div
                 className={apropos.userOpinionsNameAndStarsAndPictureContainer}
               >
-                <Image src={e[1]} height={40} width={40} />
+                <Image
+                  src={e[1]}
+                  height={40}
+                  width={40}
+                  alt="rating stars svg"
+                />
                 <div className={apropos.userNameAndStarsContainer}>
                   <div className={apropos.userStarsRatingContainer}>
                     <div></div>
