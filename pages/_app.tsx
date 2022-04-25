@@ -34,9 +34,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   const [words, setWords] = useState<any>(fr);
   const switchLanguageEN = () => {
     setWords(en);
+    gsap.to(`.${header.englishDone}`, { display: "flex", opacity: 1 });
+    gsap.to(`.${header.englishDone}`, { opacity: 0 }).delay(0.5);
+    gsap.to(`.${header.englishDone}`, { display: "none" }).delay(0.5);
+    console.log(321);
   };
   const switchLanguageFR = () => {
     setWords(fr);
+    gsap.to(`.${header.francaisDone}`, { display: "flex", opacity: 1 });
+    gsap.to(`.${header.francaisDone}`, { opacity: 0 }).delay(0.5);
+    gsap.to(`.${header.francaisDone}`, { display: "none" }).delay(0.5);
+    console.log(123);
   };
   //===============================================================
   gsap.config({
@@ -87,13 +95,21 @@ function MyApp({ Component, pageProps }: AppProps) {
   //===============================================================
   const [menuOnClick, setMenuOnClick] = useState<Boolean>(false);
   const mobileMenuAnimation = () => {
-    menuOnClick === false
-      ? gsap.to(`.${header.mobileMenuListContainer}`, {
-          right: "-10vw",
-        })
-      : gsap.to(`.${header.mobileMenuListContainer}`, {
-          right: "-500px",
-        });
+    if (menuOnClick === false) {
+      gsap.to(`.${header.mobileUnorderedListMenuContainer}`, {
+        left: "5px",
+      });
+      gsap.to(`.${header.mobileMenuListContainer}`, {
+        opacity: 1,
+      });
+    } else {
+      gsap.to(`.${header.mobileUnorderedListMenuContainer}`, {
+        left: "300px",
+      });
+      gsap.to(`.${header.mobileMenuListContainer}`, {
+        opacity: 0,
+      });
+    }
     setMenuOnClick(!menuOnClick);
   };
   //===============================================================
@@ -114,6 +130,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     headerDescriptionFunction(); // header description adding the elem before animation
   }, [router]); // activate the functions every time the router change
   //===============================================================
+  const removeMobileMenu = () => {
+    setMenuOnClick(false);
+  };
   return (
     <div className={header.appStaticPageContainer}>
       <multilingualism.Provider value={{ words }}>
@@ -130,13 +149,38 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </button>
                 <div className={header.mobileMenuListContainer}>
                   <ul className={header.mobileUnorderedListMenuContainer}>
-                    {MobileListArray?.map((e: any, i: any) => (
-                      <Link key={i} href={e[0]}>
-                        <a>
-                          <li className={`${header.mobileMenuList}`}>{e[1]}</li>
-                        </a>
-                      </Link>
-                    ))}
+                    <div>
+                      {MobileListArray?.map((e: any, i: any) => (
+                        <Link key={i} href={e[0]}>
+                          <a>
+                            <li
+                              className={`${header.mobileMenuList}`}
+                              onClick={() => mobileMenuAnimation()}
+                            >
+                              {e[1]}
+                            </li>
+                          </a>
+                        </Link>
+                      ))}
+                      <div className={header.changeLangMobileMenuContainer}>
+                        <button
+                          className={header.changeLang}
+                          onClick={() => switchLanguageEN()}
+                        >
+                          <div className={header.enFlagBTN}></div>
+                        </button>
+                        <button
+                          className={header.changeLang}
+                          onClick={() => switchLanguageFR()}
+                        >
+                          <div className={header.frFlagBTN}></div>
+                        </button>
+                      </div>
+                      <div className={header.langAnimationIsOk}>
+                        <div className={header.francaisDone}>Francais</div>
+                        <div className={header.englishDone}>English</div>
+                      </div>
+                    </div>
                   </ul>
                 </div>
                 <ul className={header.unorderedListMenuContainer}>

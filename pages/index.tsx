@@ -40,13 +40,23 @@ const Home: NextPage = () => {
                 <div className={index.quiNousSommesTitleContainer}>
                   <div className={index.nousSommesDescription}>
                     <div className={index.cocheIcon}>
-                      <Image src="/svg/icons8-coche.svg" height={h} width={w} />
+                      <Image
+                        src="/svg/icons8-coche.svg"
+                        height={h}
+                        width={w}
+                        alt="coche ok"
+                      />
                     </div>
                     <div>nous somme un club de plongée sous marine</div>
                   </div>
                   <div className={index.operateurTouristique}>
                     <div className={index.cocheIcon}>
-                      <Image src="/svg/icons8-coche.svg" height={h} width={w} />
+                      <Image
+                        src="/svg/icons8-coche.svg"
+                        height={h}
+                        width={w}
+                        alt="coche ok"
+                      />
                     </div>
                     <div>
                       Opérateur touristique spécialisé dans les excursions
@@ -66,7 +76,7 @@ const Home: NextPage = () => {
                   </div>
                 </div>
                 <div className={index.underQuiNousSommesTitleBTNContainer}>
-                  <div>Et plain d'autre activité</div>
+                  <div>{`Et plain d'autre activité`}</div>
                   <button>découvrir</button>
                 </div>
               </div>
