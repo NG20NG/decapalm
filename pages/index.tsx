@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-//"--version 1.7.6 alpha" next bug header animation
+//"changing homePage Style 5% / and adding some eng --version 1.8.1 alpha"
 import Image from "next/image";
 import index from "../styles/Index.module.css";
 //
@@ -8,7 +8,7 @@ import Carousel from "../components/carousel/carousel";
 //
 import { multilingualism } from "../contexts/multilingualism";
 import { useContext } from "react";
-//
+// 123
 const Home: NextPage = () => {
   const { words } = useContext(multilingualism);
   return (
