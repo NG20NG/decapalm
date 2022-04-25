@@ -1,15 +1,20 @@
 //
 import d from "./headerDescriptions.module.css";
 //
+import { useContext } from "react";
+import { multilingualism } from "../../contexts/multilingualism";
 //
 //
 export const AccueilDescription = () => {
+  const { words } = useContext(multilingualism);
+
   return (
     <div>
-      Amoureux de la mer
+      {words?.SeaLover}
       <br />
-      ou juste envie de changer de cadre ? venez à DECAPALM découvrir les
-      merveilles du monde sous-marin
+      {words?.or}
+      <br />
+      {words?.come}
     </div>
   );
 };
@@ -31,11 +36,12 @@ export const AproposDescription = () => {
 //
 //
 export const ContactDescription = () => {
+  const { words } = useContext(multilingualism);
   return (
     <div className={d.policeSizeContact}>
-      Contactez-nous
+      {words?.contactUs}
       <br />
-      et participer à une expérience inoubliable
+      {words?.and}
     </div>
   );
 };

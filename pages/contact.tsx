@@ -3,10 +3,13 @@
 import Link from "next/link";
 import contact from "../styles/contact.module.css";
 //
+import { useContext } from "react";
+import { multilingualism } from "../contexts/multilingualism";
 //
 //
 //
 const Contact = () => {
+  const { words } = useContext(multilingualism);
   return (
     <div className={contact.contactStaticContainer}>
       <div className={contact.contactStatic}>
@@ -21,13 +24,13 @@ const Contact = () => {
           <div className={contact.contactDescriptionContainer}>
             <div className={contact.contactDescription}>
               <div className={contact.contactDescriptionTitle}>
-                Contacter nous
+                {words?.contactUs}
               </div>
               <div className={contact.contactDescriptionInfoContainer}>
                 <div className={contact.contactDescriptionInfoLeft}>
-                  <p>Numéro :</p>
+                  <p>{words?.number} :</p>
                   <p>+213 (0) 558 55 74 74</p>
-                  <p>Adresse :</p>
+                  <p>{words?.address} :</p>
                   <p>
                     Cité Déca plage N°07 Ain Taya Alger 16019 Alger, Algérie
                   </p>
@@ -35,17 +38,17 @@ const Contact = () => {
                 <div className={contact.contactDescriptionInfoRight}>
                   <p>Mail :</p>
                   <p>decapalm@yahoo.fr</p>
-                  <p>Réseaux sociaux :</p>
+                  <p>{words?.socialNetworks} :</p>
                   <p>Facebook : Decapalm</p>
                   <p>Instagram : @Decapalm</p>
                 </div>
               </div>
               <div className={contact.contactUnderInfoDescriptionContainer}>
                 <div className={contact.contactUnderInfo}>
-                  Le baptême de plongée sous-marine est une simple{" "}
+                  {words?.bapteme}{" "}
                   <button className={contact.contactUnderInfoBTN}>
                     <Link href="/activite">
-                      <a>découverte</a>
+                      <a>{words?.discovery}</a>
                     </Link>
                   </button>
                 </div>

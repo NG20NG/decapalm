@@ -19,7 +19,25 @@ import {
   ContactDescription,
 } from "../components/headerDescriptions/headerDescriptions";
 //
+//
+import { multilingualism } from "../contexts/multilingualism";
+//
+//
+import fr from "../components/multilingualism/fr";
+import en from "../components/multilingualism/en";
+//
+//
 function MyApp({ Component, pageProps }: AppProps) {
+  //===============================================================
+  const router = useRouter();
+  //===============================================================
+  const [words, setWords] = useState<any>(fr);
+  const switchLanguageEN = () => {
+    setWords(en);
+  };
+  const switchLanguageFR = () => {
+    setWords(fr);
+  };
   //===============================================================
   gsap.config({
     autoSleep: 60,
@@ -28,7 +46,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     units: { left: "%", top: "%", rotation: "rad" },
   });
   //===============================================================
-  const router = useRouter();
   let width: any;
   if (typeof window === "object" ? window.innerWidth : undefined) {
     width = typeof window === "object" ? window.innerWidth : undefined;
@@ -56,10 +73,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
   //===============================================================
   const menuListArray = [
-    ["/", "Accueil", header.accueilBTN],
-    ["/activite", "Activité", header.activiteBTN],
-    ["/contact", "Contact", header.contactBTN],
-    ["/apropos", "À-propos", header.aproposBTN],
+    ["/", words?.Home, header.accueilBTN],
+    ["/activite", words?.Activity, header.activiteBTN],
+    ["/contact", words?.Contact, header.contactBTN],
+    ["/apropos", words?.About, header.aproposBTN],
   ];
   const MobileListArray = [
     ["/", "Accueil"],
@@ -99,50 +116,64 @@ function MyApp({ Component, pageProps }: AppProps) {
   //===============================================================
   return (
     <div className={header.appStaticPageContainer}>
-      <div className={header.appStaticPage}>
-        <div className={header.myApp}>
-          <header className={header.header}>
-            <nav className={header.nav}>
-              <h1 className={header.h1}>Decapalm</h1>
-              <button
-                className={header.mobileMenuBTN}
-                onClick={() => mobileMenuAnimation()}
-              >
-                <Image src={mobileMenuBTN} alt="mobile menu button svg" />
-              </button>
-              <div className={header.mobileMenuListContainer}>
-                <ul className={header.mobileUnorderedListMenuContainer}>
-                  {MobileListArray?.map((e: any, i: any) => (
+      <multilingualism.Provider value={{ words }}>
+        <div className={header.appStaticPage}>
+          <div className={header.myApp}>
+            <header className={header.header}>
+              <nav className={header.nav}>
+                <h1 className={header.h1}>Decapalm</h1>
+                <button
+                  className={header.mobileMenuBTN}
+                  onClick={() => mobileMenuAnimation()}
+                >
+                  <Image src={mobileMenuBTN} alt="mobile menu button svg" />
+                </button>
+                <div className={header.mobileMenuListContainer}>
+                  <ul className={header.mobileUnorderedListMenuContainer}>
+                    {MobileListArray?.map((e: any, i: any) => (
+                      <Link key={i} href={e[0]}>
+                        <a>
+                          <li className={`${header.mobileMenuList}`}>{e[1]}</li>
+                        </a>
+                      </Link>
+                    ))}
+                  </ul>
+                </div>
+                <ul className={header.unorderedListMenuContainer}>
+                  {menuListArray?.map((e: any, i: any) => (
                     <Link key={i} href={e[0]}>
                       <a>
-                        <li className={`${header.mobileMenuList}`}>{e[1]}</li>
+                        <li className={`${header.menuList} ${e[2]}`}>{e[1]}</li>
                       </a>
                     </Link>
                   ))}
+                  <button
+                    className={header.changeLang}
+                    onClick={() => switchLanguageEN()}
+                  >
+                    <div className={header.enFlagBTN}></div>
+                  </button>
+                  <button
+                    className={header.changeLang}
+                    onClick={() => switchLanguageFR()}
+                  >
+                    <div className={header.frFlagBTN}></div>
+                  </button>
                 </ul>
+              </nav>
+              <div>
+                <div className={header.headerDescription}>
+                  <div>{descriptionElem}</div>
+                </div>
               </div>
-              <ul className={header.unorderedListMenuContainer}>
-                {menuListArray?.map((e: any, i: any) => (
-                  <Link key={i} href={e[0]}>
-                    <a>
-                      <li className={`${header.menuList} ${e[2]}`}>{e[1]}</li>
-                    </a>
-                  </Link>
-                ))}
-              </ul>
-            </nav>
-            <div>
-              <div className={header.headerDescription}>
-                <div>{descriptionElem}</div>
-              </div>
-            </div>
-          </header>
-          <Component {...pageProps} />
-          <footer className={footer.footer}>
-            <Footer />
-          </footer>
+            </header>
+            <Component {...pageProps} />
+            <footer className={footer.footer}>
+              <Footer />
+            </footer>
+          </div>
         </div>
-      </div>
+      </multilingualism.Provider>
     </div>
   );
 }

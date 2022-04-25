@@ -2,54 +2,13 @@
 //
 import apropos from "../styles/apropos.module.css";
 import Image from "next/image";
-import { useRouter } from "next/router";
-import { watch } from "fs";
-import { useEffect, useState } from "react";
 //
+import rightBarImage from "../public/apropos/aproposRightImage.jpg";
+import { useState } from "react";
 //
 //
 const Apropos = () => {
-  //
-  const router = useRouter();
-  let width: any;
-  if (typeof window === "object" ? window.innerWidth : undefined) {
-    width = typeof window === "object" ? window.innerWidth : undefined;
-  }
-  let w = 700;
-  let h = 590;
-  console.log(width);
-  const [changeImage, setChangeImage] = useState<any>({
-    w: 700,
-    h: 500,
-    pic: "/apropos/aproposRightImage.jpg",
-  });
-  const changeNextImage = () => {
-    if (width <= 600) {
-      setChangeImage((e: any) => ({
-        ...e,
-        w: 800,
-        h: 600,
-        pic: "/apropos/aproposRightImage.jpg",
-      }));
-    }
-    if (width <= 1330) {
-      w = 800;
-      h = 1260;
-      setChangeImage((e: any) => ({
-        ...e,
-        w: 800,
-        h: 1260,
-        pic: "/apropos/aproposRightImageV.jpg",
-      }));
-    }
-  };
-  useEffect(() => {
-    changeNextImage();
-    console.log(width);
-  }, [width]);
-
-  //
-  //
+  const [src, setB] = useState(rightBarImage);
   //
   //
   const userInfoArray = [

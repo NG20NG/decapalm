@@ -5,6 +5,10 @@ const nextConfig = {
     loader: "akamai",
     path: "",
   },
+  i18n: {
+    locales: ["en", "fr"],
+    defaultLocale: "fr",
+  },
 };
 
 module.exports = nextConfig;

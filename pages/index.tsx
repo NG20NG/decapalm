@@ -1,13 +1,16 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-//" --version 1.7.6 alpha" next bug header animation
+//"--version 1.7.6 alpha" next bug header animation
 import Image from "next/image";
 import index from "../styles/Index.module.css";
 //
 import Carousel from "../components/carousel/carousel";
 //
+import { multilingualism } from "../contexts/multilingualism";
+import { useContext } from "react";
 //
 const Home: NextPage = () => {
+  const { words } = useContext(multilingualism);
   return (
     <div className={index.container}>
       <Head>
@@ -28,13 +31,7 @@ const Home: NextPage = () => {
             </div>
             <Carousel /> {/*main carousel*/}
             <div className={index.carouselDescription}>
-              <p>
-                La plongée sous-marine est notre passion depuis déjà plusieurs
-                années. Passion de plongeur tout d’abord, puis passion à
-                l’enseigner. Notre plus grande satisfaction est de partager
-                cette dernière avec vous en vous offrant les meilleures
-                prestations possibles
-              </p>
+              <p>{words?.carouselDescription}</p>
             </div>
           </div>
         </div>

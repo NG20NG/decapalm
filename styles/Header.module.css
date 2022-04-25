@@ -52,8 +52,10 @@
 .activiteBTN {
   border: 2px solid rgb(0, 72, 255);
   background-color: rgba(0, 0, 0, 0.216);
-  padding: 5px 16px;
+  padding: 5px 5px;
   transition: 0.1s;
+  width: 90px;
+  text-align: center;
 }
 .accueilBTN:hover,
 .contactBTN:hover,
@@ -61,7 +63,6 @@
 .activiteBTN:hover {
   transition: 0.1s;
   box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.36);
-  padding: 5px 16px;
 }
 /*=======================================titre*/
 .h1 {
@@ -104,6 +105,26 @@
   );
   text-shadow: 1px 1px black;
   box-shadow: 30px 30px 30px -20px rgba(0, 0, 0, 0.376);
+}
+.changeLang {
+  border: none;
+  width: 25px;
+  height: 15px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.152);
+  cursor: pointer;
+  padding: 0;
+}
+.frFlagBTN {
+  background-image: url("../public/header/fr-flag.jpg");
+  background-size: cover;
+  width: 25px;
+  height: 15px;
+}
+.enFlagBTN {
+  background-image: url("../public/header/en-flag.jpg");
+  background-size: cover;
+  width: 25px;
+  height: 15px;
 }
 /*================================================*/
 .mobileMenuBTN,
