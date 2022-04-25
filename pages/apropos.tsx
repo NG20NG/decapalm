@@ -78,7 +78,7 @@ const Apropos = () => {
               <Image
                 src={"/apropos/aproposRightImage.jpg"}
                 height={505}
-                width={600}
+                width={615}
                 alt="right bar image"
               />
             </div>

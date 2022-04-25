@@ -8,9 +8,11 @@ import Carousel from "../components/carousel/carousel";
 //
 import { multilingualism } from "../contexts/multilingualism";
 import { useContext } from "react";
-// 123
+//
 const Home: NextPage = () => {
   const { words } = useContext(multilingualism);
+  const w = 18;
+  const h = 18;
   return (
     <div className={index.container}>
       <Head>
@@ -21,17 +23,53 @@ const Home: NextPage = () => {
       <main className={index.main}>
         <div className={index.secondMain}>
           <div className={index.carouselContainer}>
-            <div className={index.illustrationDolphinDeco}>
+            {/* <div className={index.illustrationDolphinDeco}>
               <Image
                 src="/illustrationDolphin/dolphin.png"
                 height={150}
                 width={150}
                 alt="illustration dolphin svg"
               />
-            </div>
+            </div> */}
             <Carousel /> {/*main carousel*/}
             <div className={index.carouselDescription}>
-              <p>{words?.carouselDescription}</p>
+              <div>
+                <div className={index.quiNousSommesTitle}>
+                  Qui nous sommes ?
+                </div>
+                <div className={index.quiNousSommesTitleContainer}>
+                  <div className={index.nousSommesDescription}>
+                    <div className={index.cocheIcon}>
+                      <Image src="/svg/icons8-coche.svg" height={h} width={w} />
+                    </div>
+                    <div>nous somme un club de plongée sous marine</div>
+                  </div>
+                  <div className={index.operateurTouristique}>
+                    <div className={index.cocheIcon}>
+                      <Image src="/svg/icons8-coche.svg" height={h} width={w} />
+                    </div>
+                    <div>
+                      Opérateur touristique spécialisé dans les excursions
+                    </div>
+                  </div>
+                  <div className={index.venezDecouvrir}>
+                    venez découvrir nos activités
+                  </div>
+                  <div className={index.baptemeDePlongeeContainer}>
+                    <div className={index.baptemeDePlongee}>
+                      Baptême de Plongée :
+                    </div>
+                    <div className={index.baptemeDePlongeeDescription}>
+                      - Le baptême de plongée sous-marine est une simple
+                      découverte, Accessible à tous
+                    </div>
+                  </div>
+                </div>
+                <div className={index.underQuiNousSommesTitleBTNContainer}>
+                  <div>Et plain d'autre activité</div>
+                  <button>découvrir</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

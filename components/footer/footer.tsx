@@ -20,12 +20,20 @@ const Footer = () => {
           </p>
           <div id={footer.reseau}>
             <div className={footer.reseauSVG}>
-              <a href="https://fr-fr.facebook.com/decapalm" target="_blank">
+              <a
+                href="https://fr-fr.facebook.com/decapalm"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Image src={fbSvg} width={40} height={40} alt="facebook svg" />
               </a>
             </div>
             <div className={footer.reseauSVG}>
-              <a href="https://www.instagram.com/decapalm" target="_blank">
+              <a
+                href="https://www.instagram.com/decapalm"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Image
                   src={instaSvg}
                   width={40}
