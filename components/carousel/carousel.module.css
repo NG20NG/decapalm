@@ -1,25 +1,28 @@
 .mainCarouselStaticContainer {
-  border-radius: 10px;
+  border-radius: 5px;
   width: 700px;
-  height: 400px;
+  height: 420px;
   overflow: hidden;
   margin-left: 60px;
+  background-color: rgb(0, 0, 0);
+  box-shadow: 10px 10px 10px -5px rgba(0, 0, 0, 0.603);
 }
 .divInsideCarousel > div {
   margin: 0px 20px;
   width: 700px;
-  height: 400px;
+  height: auto;
 }
 .sliderElement {
   box-shadow: 5px 5px 10px -2px black;
   padding: 5px;
-  background-color: rgba(255, 255, 255, 0.479);
+  background-color: rgb(0, 0, 0);
+  box-shadow: none;
 }
 @media only screen and (max-width: 600px) {
   .mainCarouselStaticContainer {
     border-radius: 5px;
     width: 80vw;
-    height: 40%;
+    height: 35%;
     margin-left: 0;
   }
 }

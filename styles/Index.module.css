@@ -23,7 +23,7 @@
   height: 399px;
   width: 350px;
   font-size: 26px;
-  font-family: karla;
+  font-family: "karla";
   font-weight: 500;
   margin-right: 50px;
   box-shadow: 15px 15px 15px -5px rgba(0, 0, 0, 0.524);
@@ -41,8 +41,6 @@
     rgb(239, 239, 239)
   );
   color: rgb(0, 0, 0);
-  text-shadow: 1px 1px black;
-  box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, 0.23);
 }
 .illustrationDolphinDeco {
   position: absolute;
@@ -59,6 +57,7 @@
   .carouselContainer {
     flex-direction: column;
     justify-content: center;
+    justify-content: space-around;
     width: 100vw;
     height: 550px;
   }
@@ -75,13 +74,11 @@
 }
 @media only screen and (max-width: 300px) {
   .carouselContainer {
-    margin-top: 65%;
-  }
-  .carouselContainer {
     flex-direction: column;
     justify-content: center;
     width: 100vw;
     height: 530px;
+    margin-top: 65%;
   }
   .carouselDescription > p {
     font-size: 18px;
